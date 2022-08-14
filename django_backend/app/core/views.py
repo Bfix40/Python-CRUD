@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from .task import unsync_notify
-from .serializers import UserSerializer
-from .models import User 
+from .serializers import UserSerializer, JobSerializer
+from .models import Job, User 
 import jwt
 import datetime
 class StatusView(APIView):
@@ -18,10 +18,16 @@ class StatusView(APIView):
 class UserViewSet(ModelViewSet):
 
     serializer_class = UserSerializer
-    
+
     def get_queryset(self):
         return User.objects.all()
-    
+
+class JobViewSet(ModelViewSet):
+
+    serializer_class = JobSerializer
+
+    def get_queryset(self):
+        return Job.objects.all()
 class RegisterView(APIView):
 
     def post(self, request):

@@ -10,3 +10,8 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+class Job(models.Model):
+    
+    name = name = models.CharField(max_length=255)
+    

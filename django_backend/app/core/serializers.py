@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import User
+from .models import User, Job
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -23,3 +23,8 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
     
 
+class JobSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Job
+        fields = ["id", "name",]
+        
